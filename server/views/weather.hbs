@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know your local area's Weather forecast</title>
+    <link rel="stylesheet" href="./Css/root.css">
+    <link rel="stylesheet" href="./Css/weather.css">
+    <!--Font awesome-->
+    {{!-- {{fontAwesome}} --}}
+    <script src="https://kit.fontawesome.com/fd1a296e6c.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    {{!-- Nav --}}
+    {{>nav}}
+    {{!-- MAIN --}}
+
+    {{!-- Loading Bar --}}
+    {{>loadingBar}}
+    {{!-- Loading Bar --}}
+
+
+    <main>
+        <section class="container-fluid">
+            <div id="shortTimeMsg"><span>
+                    <p>Please enter the correct City or Area name for accurate output.</p><i id="cross" class="fas fa-times"></i>
+                </span></div>
+
+            <div id="cityNameError"><span>
+                    <p id="errorContent">Please Enter a valid City or Area name</p><i id="cross2" class="fas fa-times"></i>
+                </span></div>
+
+            <div id="geolocation">
+                <div>
+                <span id="location-txt">Get weather by your location</span><span id="location-ico" onclick="geoLocation()"><i class="fas fa-map-marker-alt"></i></span>
+                 </div>
+            </div>
+
+            <div class="searchBar">
+                <span id="searchBarBody">
+                    <i style="font-size: 1.5rem; text-align:center;" class="fas fa-cloud-sun"></i>
+                    <input name="userData" id="searchBar" type="search" placeholder="Enter your city properly" maxlength="15">
+                    <input type="submit" value="Search" id="searchBTN">
+                </span>
+            </div>
+
+            <div class="outputs">
+                <div class="outputFeild details">
+                    <div class="date_week">
+                        <div class="dw"><span id="day">Monda</span></div>
+                        <div class="dw"><span id="date-month"><p id="date"></p>,<p id="month"></p></span></div>
+                    </div>
+
+                    <div class="city_name" id="city_name">
+                        <p>City: </p>
+                        <span id="cityName">Your city name</span>
+                    </div>
+
+                    <div class="lt-ln">
+                        <div id="lt"> Lat: <span id="lat">00.000</span></div>
+                        <div id="ln"> Long: <span id="lon">00.000</span></div>
+                    </div>
+                </div>
+
+
+                <div class="outputFeild weatherfeild">
+
+                    <div id="weather_status"><span id="wed_status">Status</span></div>
+
+                    <div id="weather_info">
+                        <div id="temp"><span id="tempData">0</span><sup>&deg;</sup><span>c</span></div>
+                        <div id="weather_status_img">
+                            <div><img id="weather-icon" src="./Assests/weather/64x64/day/113.png" alt=""></div   >
+                        </div>
+                    </div>
+                </div>
+                <div class="outputFeild otherdetailsfeeild">
+
+                    <div id="min-max-temp"><span>Max:&nbsp;<p id="max"></p>&deg;c</span><span>Min:&nbsp;<P id="min"></p>&deg;c</span></div>
+                <div id="othersfeildMain">
+                    <div class="tempFeelsLike"><i class="fas fa-temperature-low"></i><span><p>Feels like: <span id="feelsLike"></span> </p></span></div>
+                    <div class="Humidity"><i class="fas fa-tint"></i><span><p>Humidity: <span id="humidity"></span> </p></span></div>
+                    <div class="Pressure"><i class="fas fa-sort"></i><span><p>Pressure: <span id="press"></span></p></span></div>
+                    <div class="Wind"><i class="fas fa-wind"></i><span><p>Wind: <span id="wind"></span> </p></span></div>
+                </div>
+                </div>
+            </div>
+
+            <div id="note">
+                <p>Here you can find any city/area/location's weather forecast in the world for free.</p>
+            </div>
+            <div id="note2"><p>If you like our services and want to buy me a coffee the Please <a href="">Click here</a> </p></div>
+        </section>
+
+    </main>
+     {{!-- More Details --}}
+        <section class="moredetails">
+            <div class="MoreDetailscontainrer container-fluid">
+
+            <div class="moreDetailsbody">
+                <div class="moreDetailsHead"><span>More Details</span><span><i id="dropDown-UpBtn" class="fas fa-chevron-circle-down"></i></span></div>
+
+            <div id="collaps_details">
+                <div class="dateAndTime"><span><p>7 Days Forecast : </p></span>
+                <span><p>State Name : </p>&nbsp;<p id="stateName"> </p></span>
+                </div>
+                <div style="display: flex; justify-content: center ; margin-bottom: 20px"><hr style="width: 95%;"></div>
+                
+                <div id="Ten_day_forecast">
+                    <div id="tenDForC-Container">
+                        <div><span class="dfd7">Day 1</span><span><span id="day1">0</span><sup>&deg;</sup><span>c </span> | <span id="day1-L">0</span><sup>&deg;</sup><span>c</span></span></span></div>
+                        <div><span class="dfd7">Day 2</span><span><span id="day2">0</span><sup>&deg;</sup><span>c </span> | <span id="day2-L">0</span><sup>&deg;</sup><span>c</span></span></span></div>
+                        <div><span class="dfd7">Day 3</span><span><span id="day3">0</span><sup>&deg;</sup><span>c </span> | <span id="day3-L">0</span><sup>&deg;</sup><span>c</span></span></span></div>
+                        <div><span class="dfd7">Day 4</span><span><span id="day4">0</span><sup>&deg;</sup><span>c </span> | <span id="day4-L">0</span><sup>&deg;</sup><span>c</span></span></span></div>
+                        <div><span class="dfd7">Day 5</span><span><span id="day5">0</span><sup>&deg;</sup><span>c </span> | <span id="day5-L">0</span><sup>&deg;</sup><span>c</span></span></span></div>
+                        <div><span class="dfd7">Day 6</span><span><span id="day6">0</span><sup>&deg;</sup><span>c </span> | <span id="day6-L">0</span><sup>&deg;</sup><span>c</span></span></span></div>
+                        <div><span class="dfd7">Day 7</span><span><span id="day7">0</span><sup>&deg;</sup><span>c </span> | <span id="day7-L">0</span><sup>&deg;</sup><span>c</span></span></span></div>
+                    </div>
+                </div>
+
+                {{!-- <div class="warning-status">
+                    <div class="war_stat_container">
+                        <h2 class="warning_head">This is warning :</h2>
+                        <div id="warning-desc">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus maiores mollitia, ex esse fugiat illum odit ullam hic repellendus distinctio dolorem excepturi officia velit laborum quis est in quo amet sunt iusto impedit. Impedit, quos?
+                        </div>
+                    </div>
+                </div> --}}
+            </div>
+            </div>
+            </div>
+        </section>   
+
+        <section id="weather_maps">
+            <div class="weatherMaps"></div>
+            <div class="weatherMaps"></div>
+            <div class="weatherMaps"></div>
+        </section>
+
+<script src="./src/weather.js"></script>
+</body>
+
+</html>

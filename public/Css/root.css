@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Dosis', sans-serif;
+    color: var(--text-color);
+}
+
+:root{
+    --primary-color : #536dfe;
+    --background-color : #ffffff;
+    --secondary-color : #3f3d56;
+    --text-color : #9f9f9f;
+    --clouds : #d3d3d3;
+}
+
+/*******Creaed Class props**************/
+
+.container-fluid{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    overflow: hidden;
+    /* border: 1px solid red; */
+}
+
+main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+
+
+
+/****Scroll bar****/
+::-webkit-scrollbar{
+    width: 8px;
+    height: 400px;
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(#72708d,var(--primary-color));
+    border-radius: 10px;
+   /* filter: blur(30px);*/
+}
+
+
+/********************************************************************************************
+Partials
+********************************************************************************************/
+nav{
+    width: 100%;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+}
+#navbody{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#mainIcon{
+    display: flex;
+    align-items: center;
+   
+}
+.icons{
+    margin-right: 5px;
+}
+.icon{
+    margin-right: 8px;
+    color: white;
+    color: var(--primary-color);
+    animation: iconrot 5s linear infinite ;
+    font-size: 1.1rem;
+}
+@keyframes iconrot {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+#mainIcon>a{
+    font-family: 'Satisfy', cursive !important;
+    font-size: 1.5rem;
+    color: white; font-weight: 600;
+}
+#mainIcon>a:hover, .navitems>span>a:hover{
+    color: var(--primary-color);
+}
+.navitems{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.navitems>span{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+.navitems>span>a{
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+}

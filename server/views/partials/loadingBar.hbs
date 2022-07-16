@@ -1,0 +1,33 @@
+<div id="outerLoadingBar"><div id="loadingbar"></div></div>
+
+<style>
+    #outerLoadingBar{
+        height: 5px;
+    }
+    #loadingbar{
+        background-color: var(--primary-color);
+        height: 5px;
+        animation: load 1s linear;
+        width: 80%;
+        display: none;
+    }
+    @keyframes load {
+        0%{
+            width: 0%;
+        }
+        50%{
+            width: 50%;
+        }
+        100%{
+            width: 80%;
+        }
+    }
+</style>
+
+<!--<script>
+    function loadingBar(){
+        document.getElementById("loadingbar").style.display = "none"
+       
+    }
+    
+</script>-->

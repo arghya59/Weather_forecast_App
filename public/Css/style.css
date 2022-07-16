@@ -1,0 +1,50 @@
+/*****************************************
+******************************************
+Main Section
+******************************************
+*****************************************/
+main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+.container-fluid{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    overflow: hidden;
+}
+.mainSection{
+    /* border: 1px solid red; */
+    padding: 3px;
+    height: 75vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.illustrations{
+    width: 40vw;
+    animation: illustration 3s linear  infinite;
+}
+@keyframes illustration {
+    50%{
+        transform: scale(1.1);
+    }
+}
+
+.hmBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid #e7e7e7; */
+    border-radius: 20px;
+    width: 15%;
+    height: 30px;
+    background-color: #f3f3f3;
+    box-shadow: 0px 3px 6px rgb(0 0 0 / 30%);
+}
+
+.hmBtn:hover{
+    box-shadow: 0px 3px 6px -1px var(--primary-color);
+}
